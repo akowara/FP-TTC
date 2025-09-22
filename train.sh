@@ -9,6 +9,7 @@ OMP_NUM_THREADS=8 torchrun --standalone --nnodes=1 --nproc_per_node=1 train.py \
 --epoch 1 \
 --lr 1e-4 \
 --batch_size 4 \
---stage 'tartanair' \
+--stage 'kitti' \
 --image_size 320 320 \
---parallel
+--parallel \
+--eval

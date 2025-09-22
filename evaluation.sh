@@ -1,0 +1,12 @@
+CUDA_VISIBLE_DEVICES=0 python evaluation.py \
+--resume ./pretrained/model_files/fpttc_kitti29y.pth.tar \
+--padding_factor 32 \
+--upsample_factor 4 \
+--num_scales 2 \
+--num_head 1 \
+--attn_splits_list 2 8 \
+--corr_radius_list -1 4 \
+--prop_radius_list -1 1 \
+--inference_dir Datasets/kitti/data_scene_flow/training/image_2/ \
+--output_path output_directory/ \
+--image_size 320 320

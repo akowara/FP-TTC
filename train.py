@@ -95,8 +95,8 @@ parser.add_argument('--gamma', default=0.9, type=float,
                     help='exponential weighting')
 
 # predict on sintel and kitti test set for submission
-parser.add_argument('--kittidataset', default='/home/andrew/FP-TTC/Datasets/kitti/data_scene_flow/training/', type=str)
-parser.add_argument('--drivingdataset', default='/home/andrew/FP-TTC/Datasets/Driving/', type=str)
+parser.add_argument('--kittidataset', default='/home/viplab/FP-TTC/Datasets/kitti/data_scene_flow/training/', type=str)
+parser.add_argument('--drivingdataset', default='/home/viplab/FP-TTC/Datasets/Driving/', type=str)
 parser.add_argument('--submission', action='store_true',
                     help='submission to sintel or kitti test sets')
 parser.add_argument('--output_path', default='output', type=str,

@@ -403,7 +403,7 @@ class TTCTrainer(object):
         return sorted(l0_train), sorted(l1_train), sorted(flow_train), sorted(depth0_train), sorted(depth1_train), sorted(mask_train)
         
     @torch.no_grad()
-    def eval_epoch(self, eval_path='/home/andrew/FP-TTC/Datasets/kitti/data_scene_flow/training/'):
+    def eval_epoch(self, eval_path='/home/viplab/FP-TTC/Datasets/kitti/data_scene_flow/training/'):
 
         img0x, img1x, flow0 = self.eva_dataloader(eval_path)
         disp0 = [i.replace('flow_occ','disp_occ_0') for i in flow0]

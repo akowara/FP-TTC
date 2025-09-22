@@ -378,7 +378,7 @@ class FlyingThings3D(FlowDataset):
 
 
 class KITTI(FlowDataset):
-    def __init__(self, aug_params=None, split='training', root='/home/andrew/FP-TTC/Datasets/kitti/data_scene_flow', get_depth=0):
+    def __init__(self, aug_params=None, split='training', root='/home/viplab/FP-TTC/Datasets/kitti/data_scene_flow', get_depth=0):
         super(KITTI, self).__init__(aug_params, sparse=True)
         self.get_depth=get_depth
         if split == 'testing':
@@ -396,8 +396,8 @@ class KITTI(FlowDataset):
         disp2 = []
         flow =[]
 
-        assert root == '/home/andrew/FP-TTC/Datasets/kitti/data_scene_flow', "just a check to ensure root path is correct"
-        root_img = '/home/andrew/FP-TTC/Datasets/kitti/data_scene_flow_multi'
+        assert root == '/home/viplab/FP-TTC/Datasets/kitti/data_scene_flow', "just a check to ensure root path is correct"
+        root_img = '/home/viplab/FP-TTC/Datasets/kitti/data_scene_flow_multiview'
         if split == 'training':
             root = osp.join(root, split)
             root_img = osp.join(root_img, split)
@@ -453,7 +453,7 @@ class KITTI(FlowDataset):
 
 
 class Driving(FlowDataset):
-    def __init__(self, aug_params=None,  split='training',root='/home/andrew/FP-TTC/Datasets/OpticalFlow/Driving'):
+    def __init__(self, aug_params=None,  split='training',root='/home/viplab/FP-TTC/Datasets/OpticalFlow/Driving'):
         super(Driving, self).__init__(aug_params, sparse=True)
         self.calib = []
         self.occlusion = False
@@ -568,6 +568,6 @@ def fetch_dataloader(args, TRAIN_DS='C+T+K/S'):
         aug_params = {'crop_size': args.image_size, 'min_scale': -0.2, 'max_scale': 0.6, 'do_flip': True}
         tartanair = TartanAir(aug_params, split='training')
         train_dataset = tartanair
-
+    
     print('Training with %d image pairs' % len(train_dataset))
     return train_dataset
