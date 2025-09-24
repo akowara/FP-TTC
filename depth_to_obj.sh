@@ -1,0 +1,1 @@
+python depth_to_obj.py --depthPath 'output/25_09_24-14_11_12_selfcon_ttc'

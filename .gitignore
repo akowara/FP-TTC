@@ -225,3 +225,5 @@ gt_depth/
 log/
 .idea
 pretrained/
+images/
+output_directory/
