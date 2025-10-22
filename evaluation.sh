@@ -7,6 +7,6 @@ CUDA_VISIBLE_DEVICES=0 python evaluation.py \
 --attn_splits_list 2 8 \
 --corr_radius_list -1 4 \
 --prop_radius_list -1 1 \
---inference_dir /home/viplab/tartanair_test_set/mono/ME006/ \
+--inference_dir /home/viplab/tartanair_test_set/mono/ME000/ \
 --output_path output_directory/ \
 --image_size 320 320
