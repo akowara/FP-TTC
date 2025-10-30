@@ -1,1 +1,1 @@
-python objs_to_video.py --folderPath 'output/25_10_20-11_51_11_selfcon_ttc/obj_models'
+python objs_to_video.py --folderPath 'output/25_10_22-16_32_03_selfcon_ttc/obj_models'

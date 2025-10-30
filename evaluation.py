@@ -173,19 +173,20 @@ def main():
     # print(filenames)
     print('%d images found' % len(filenames))
 
-    w, h = 640, 320
+    # w, h = 640, 320
+    w, h = 1242, 375
     total = 0
     with torch.no_grad():
-        for test_id in range(0, 230):
+        for test_id in range(0, 200):
             
-            # if test_id%5!=0:
-            #     continue
+            if test_id%5!=0:
+                continue
             
-            # file_1 = inference_dir+str(test_id).zfill(6)+'_10.png'
-            # file_2 = inference_dir+str(test_id).zfill(6)+'_11.png'
+            file_1 = inference_dir+str(test_id).zfill(6)+'_10.png'
+            file_2 = inference_dir+str(test_id).zfill(6)+'_11.png'
 
-            file_1 = inference_dir+str(test_id).zfill(6)+'.png'
-            file_2 = inference_dir+str(test_id+1).zfill(6)+'.png'
+            # file_1 = inference_dir+str(test_id).zfill(6)+'.png'
+            # file_2 = inference_dir+str(test_id+1).zfill(6)+'.png'
 
             image1 = Image.open(file_1).convert('RGB')
             image2 = Image.open(file_2).convert('RGB')

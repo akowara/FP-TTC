@@ -54,7 +54,7 @@ class FpTTC(nn.Module):
                 num_reg_refine=6,
                 pred_bidir_flow=False,
                 testing=False,
-                ):
+                ):  
 
         if self.is_trainning and not testing:
             self.eval()

@@ -70,13 +70,14 @@ class ScaleNet(nn.Module):
                 ):
 
         cfeat0 = feature0_listc[-1]
+        cfeat1 = feature1_listc[-1]
 
         scale_feature = self.encoder(feature0_listc, feature1_listc, \
                                     self.query_lvl, ini_query=corr)     #(bs, c, h, w)
         
         agg_corr = self.gma(scale_feature, corr, 'swin', [2,8])
 
-        scale = self.decoder(scale_feature, cfeat0, agg_corr, ini_scale)
+        scale = self.decoder(scale_feature, cfeat1, agg_corr, ini_scale)
 
         return scale
 

@@ -88,13 +88,13 @@ class ScaleEncoder(nn.Module):
 
         # query
 
-        scale_pre = feature0_list[query_lvl]
-
+        scale_pre = feature1_list[query_lvl]
+        
         if ini_query is None:
             query = self.scale_conv(scale_pre)  # b, c, h, w
         else:
             query = self.scale_conv(ini_query)
-        query += self.pos_enc(query)    # b, c, h, w
+            query += self.pos_enc(query)    # b, c, h, w
 
         query_location = self.get_reference_points(height, width, bs, device=query.device, dtype=query.dtype)
 
@@ -122,6 +122,7 @@ class ScaleEncoder(nn.Module):
         feat0_flatten = torch.cat(feat0_flatten, 2)   #b, c, hw+HW
         feat1_flatten = torch.cat(feat1_flatten, 2)   #b, c, hw+HW
 
+        # value = self.value_fs_conv(torch.cat([feat0_flatten, feat1_flatten], dim=1))  # b, c, hw+HW
         value = self.value_fs_conv(torch.cat([feat0_flatten, feat1_flatten], dim=1))  # b, c, hw+HW
         value = (value.permute(0,2,1).contiguous().unsqueeze(2).repeat(1, 1, self.nhead, 1))   # b, hw+HW, nhead, c
 
@@ -137,6 +138,7 @@ class ScaleEncoder(nn.Module):
         
 
         for i, layer in enumerate(self.layers):
+            print(i)
             query = layer(query, value,
                             height=h,
                             width=w,
